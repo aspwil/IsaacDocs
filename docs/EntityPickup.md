@@ -80,7 +80,7 @@ If manually set to a value, it will auto update to the regular cost of that item
     this code spawns a useful item with a cost of 1 red heart
 
     ```lua
-    local shopItem = Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, CollectibleType.COLLECTIBLE_POOP, Vector(240, 540), Vector(0,0), nil)
+    local shopItem = Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, CollectibleType.COLLECTIBLE_POOP, Vector(240, 540), Vector(0,0), nil):ToPickup()
     shopItem.AutoUpdatePrice = false
     shopItem.Price = PickupPrice.PRICE_ONE_HEART
     ```
