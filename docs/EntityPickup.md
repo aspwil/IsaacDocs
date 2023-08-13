@@ -72,7 +72,18 @@ ___
 ### Price {: aria-label='Variables' }
 [ ](#){: .abrep .tooltip .badge }
 #### int Price  {: .copyable aria-label='Variables' }
-Price of the pickup in shops.
+When positive, it is the price in coins of the pickup (as is seen in shops). Can also be set to one of the [PickupPrice](PickupPrice.md) enum values for cost to be in hearts (as is seen in devil deals)
+
+If manually set to a value, it will auto update to the regular cost of that item the next update unless AutoUpdatePrice is set to false
+
+???- example "Example Code"
+    this code spawns a useful item with a cost of 1 red heart
+
+    ```lua
+    local shopItem = Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, CollectibleType.COLLECTIBLE_POOP, Vector(240, 540), Vector(0,0), nil)
+    shopItem.AutoUpdatePrice = false
+    shopItem.Price = PickupPrice.PRICE_ONE_HEART
+    ```
 
 ???- info "Tainted Keeper Info"
     On Tainted Keeper, all items are supposed to have a price. But any items spawned with Lua does not comply with this rule, so you have to manually set a price. On the next frame after assigning a price (for example `1`), it will snap to the correct price it would have for Tainted Keeper (e.g. 15). This is because of the AutoUpdatePrice feature.
